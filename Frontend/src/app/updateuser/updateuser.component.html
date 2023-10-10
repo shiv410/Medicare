@@ -1,0 +1,37 @@
+<!-- <p>updateuser works!</p> -->
+<br>
+<div class="col-md-6 m-auto">
+    <div class="card">
+        <div class="card-header">
+            <h5>Edit User</h5>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div>
+                    First Name:
+                    <input class="form-control" [(ngModel)]="user!.firstname" name="firstname">
+                </div>
+                <div>
+                    Last Name:
+                    <input class="form-control" [(ngModel)]="user.lastname" name="lastname">
+                </div>
+                <div>
+                    User Email:
+                    <input class="form-control" [(ngModel)]="user.emailId" name="emailId">
+                </div>
+                <div>
+                    Gender:
+                    <input class="form-control" [(ngModel)]="user.gender" name="gender">
+                </div>
+                <div>
+                    Date Of Birth:
+                    <input class="form-control" [(ngModel)]="user.dateOfBirth" name="dateOfBirth">
+                </div>
+                <br>
+                <div>
+                    <button class="btn btn-dark" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

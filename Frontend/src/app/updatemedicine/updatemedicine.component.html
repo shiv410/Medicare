@@ -1,0 +1,56 @@
+<!-- <p>updatemedicine works!</p> -->
+<br>
+<div class="col-md-7 m-auto">
+    <div class="card">
+        <div class="card-header">
+            <h4>Update Medicine</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit(medicineForm)" #medicineForm="ngForm">
+                <input type="hidden" name="id" [(ngModel)]="medicine.id">
+
+                <div>
+                    <label>Name:</label>
+                    <input class="form-control" type="text" [(ngModel)]="medicine.name" name="name"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <textarea class="form-control" type="text" [(ngModel)]="medicine.description" name="description"
+                        cols="4" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+                <div>
+                    <label>Brand:</label>
+                    <input class="form-control" type="text" [(ngModel)]="medicine.brand" name="brand"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                    <label>Available Quantity:</label>
+                    <input class="form-control" type="number" [(ngModel)]="medicine.availableQuantity"
+                        name="availableQuantity" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                    <label>Price:</label>
+                    <input class="form-control" type="number" [(ngModel)]="medicine.price" name="price"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                    <label>Category:</label>
+                    <select class="form-select" [(ngModel)]="medicine.categoryId" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Current Image : </label>&nbsp;&nbsp;&nbsp;
+                    <img *ngIf="medicine.image" [src]="medicine.image" alt="Medicine Image" width="200">
+                    <br>
+                    <label>Change Image: </label>
+                    <input class="form-control" type="file" (change)="onImageSelected($event)" name="image">
+                </div><br>
+                <div>
+                    <button class="btn btn-dark" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

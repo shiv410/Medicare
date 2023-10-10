@@ -1,0 +1,64 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg text-light navbar-dark" style=" background-color:teal;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class='fas fa-clinic-medical pe-3'></i>MediCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="">About</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/register">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/login">Signin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/login">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================================================ -->
+    <!-- side nav -->
+    <div class="container-fluid" style="width: 100%;">
+        <div class="row">
+            <div class="col-md-2 p-2 overflow-auto">
+                <div class="col-md-10 sidenav">
+                    <div class="list-group list-group-flush list-group-no-border list-group-sm fs-6">
+                        <h5>Categories</h5>
+                        <a routerLink="viewmedicine" class="list-group-item list-group-item-action">All Medicines</a>
+                        <a routerLink="#" class="list-group-item list-group-item-action"
+                            *ngFor="let category of categories" [attr.data-name]="category.name">{{category.name}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+
+            <div class="outlet col-md-10">
+                <div class="col-md-12">
+                    <router-outlet></router-outlet>
+                    <ul>
+                        <li *ngFor="let medicine of medicinesList">{{ medicine.name }}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ========================================== -->
+        </div>
+    </div>
+</div>

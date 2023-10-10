@@ -1,0 +1,59 @@
+<!-- <p>viewmedicine works!</p> -->
+<br>
+
+<div>
+    <div>
+        <form class="col-md-6 d-flex m-auto" role="search">
+            <input class="form-control me-2" type="search" aria-label="Search" name="searchTerm" type="text"
+                placeholder="Search medicines..">
+            <button class="btn text-light" type="submit" style="background-color: rgb(6, 83, 97);">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <h4>Medicine List</h4>
+
+    <table class="table table-bordered text-center text-capitalize">
+        <thead class="text-center">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Medicine Description</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Add/Remove</th>
+                <th>Quntity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let medicine of medicines |  paginate:{itemsPerPage:4,currentPage:p}">
+                <td><img [src]="'data:image/jpeg;base64,' + medicine.image" alt="Medicine Image" width="120"></td>
+                <td>{{medicine.name}}</td>
+                <td>{{medicine.description}}</td>
+                <td>{{medicine.brand}}</td>
+                <td>&#8377;{{medicine.price}}/strip</td>
+                <td>{{medicine.category.name}}</td>
+
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button class="btn btn-dark btn-sm" (click)="addToCart(medicine)">
+                            <i class='fas fa-plus'></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="removeFromCart(medicine)">
+                            <i class='fas fa-minus'></i>
+                        </button>
+                    </div>
+                </td>
+
+                <td>{{medicine.quantityInCart}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <div>
+        <button routerLink="/cart" class="btn btn-dark">Go To Cart</button>
+    </div>
+</div>

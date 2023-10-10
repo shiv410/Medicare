@@ -1,0 +1,24 @@
+<!-- <p>updatecategory works!</p> -->
+<br>
+<div class="col-md-7 m-auto">
+    <div class="card">
+        <div class="card-header text-light" style="background-color: teal;">
+            <h4>Update Category</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="updateCategory()">
+                <div>
+                    <label>Name:</label>
+                    <input class="form-control" [(ngModel)]="category.name" name="name" required>
+                </div><br>
+                <div>
+                    <label>Description:</label>
+                    <textarea class="form-control" [(ngModel)]="category.description" name="description"
+                        rows="4"></textarea>
+                </div>
+                <br>
+                <button class="btn btn-dark" type="submit">Update Category</button>
+            </form>
+        </div>
+    </div>
+</div>

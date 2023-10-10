@@ -1,0 +1,58 @@
+<!-- <p>medicinelist works!</p> -->
+<h3 class="p-2">Medicine List</h3>
+<button class="btn btn-dark" routerLink="/addmedicine">
+    Add new Medicine
+</button>
+<br>
+<br>
+
+<table class="table table-bordered text-capitalize">
+    <thead class="text-center">
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Brand</th>
+            <th>Available Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Activate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medicine of medicines">
+            <td>{{medicine.id}}</td>
+            <td><img [src]="'data:image/jpeg;base64,' + medicine.image" alt="Medicine Image" width="100"></td>
+            <td>{{medicine.name}}</td>
+            <td>{{medicine.description}}</td>
+            <td>{{medicine.brand}}</td>
+            <td>{{medicine.availableQuantity}}</td>
+            <td>&#8377;{{medicine.price}}/Strip</td>
+            <td>{{medicine.category.name}}</td>
+            <td>
+                <!-- <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round">{{ medicine.isActive ? 'Active' : 'Inactive' }}</span>
+                </label> -->
+
+                <button class="btn rounded-pill btn-sm" [class.btn-success]="medicine.isActive"
+                    [class.btn-danger]="!medicine.isActive" (click)="toggleActive(medicine)">
+                    {{ medicine.isActive ? 'Active' : 'Inactive' }}
+                </button>
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-dark btn-sm rounded-pill" (click)="updateMedicine(medicine.id!)">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-danger btn-sm rounded-pill" (click)="deleteMedicine(medicine.id!)">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

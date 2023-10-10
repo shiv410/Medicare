@@ -1,0 +1,32 @@
+<!-- <p>login works!</p> -->
+<br>
+<div class="col-md-6 m-auto">
+    <div class="card">
+        <div class="card-header text-light p-3" style="background-color: teal;">
+            <h5>Login Here</h5>
+        </div>
+        <div class="card-body">
+            <p>Sign in to your account</p>
+            <form (ngSubmit)="onLogin()">
+                <div>
+                    Email:
+                    <input class="form-control" [(ngModel)]="email" name="emailId" type="email" required>
+                </div>
+                <div>
+                    Password:
+                    <input class="form-control" [(ngModel)]="password" name="password" type="password" required>
+                </div>
+                <br>
+                <div class="d-grid gap-2 mb-3">
+                    <button class="btn text-light" type="submit" style="background-color: teal;">Login</button>
+                </div>
+
+                <p class="mb-3 pb-lg-2" style="color: #393f81;">Don't have an account?
+                    <a routerLink="/register" style="color: #393f81;">Register here</a>
+                </p>
+
+            </form>
+
+        </div>
+    </div>
+</div>

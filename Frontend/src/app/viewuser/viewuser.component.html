@@ -1,0 +1,51 @@
+<!-- <p>viewuser works!</p> -->
+<br>
+<div class="m-auto">
+    <div class="row">
+        <div class="card col-md-5">
+            <div class="card-body" *ngIf="user">
+                <h3>{{ user.firstname }} {{ user.lastname }}</h3>
+                <p>Email: {{ user.emailId }}</p>
+                <p>Gender:{{ user.gender }}</p>
+                <p>Birthday:{{ user.dateOfBirth | date:'mediumDate' }}</p>
+            </div>
+        </div>
+        <br>
+        <br><br>
+        <br>
+        <h4>Your Orders</h4>
+
+        <div class="card-body">
+            <div class="card col-md-5">
+                <div class="card-header">
+                    Date : Oct 9, 2023
+                </div>
+                <div class="card-body">
+                    <h6>Ordered Medicines</h6>
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Medicine</th>
+                                <th>Quantity</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Paracetamol</td>
+                                <td>2</td>
+                                <td>&#8377;40</td>
+                            </tr>
+                            <tr>
+                                <td>Combiflame</td>
+                                <td>2</td>
+                                <td>&#8377;140</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h6>Total Amount : 180</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

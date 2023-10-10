@@ -1,0 +1,36 @@
+<!-- <p>cart works!</p> -->
+<div>
+    <div>
+        <h4>Your Cart</h4>
+
+        <table class="table table-bordered text-center">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <!-- <th scope="col">Medicine Description</th> -->
+                    <th scope="col">Brand</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quntity</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicine of medicines">
+                    <td><img [src]="'data:image/jpeg;base64,' + medicine.image" alt="Medicine Image" width="120"></td>
+                    <td>{{medicine.name}}</td>
+                    <!-- <td>{{medicine.description}}</td> -->
+                    <td>{{medicine.brand}}</td>
+                    <td>&#8377;{{medicine.price}}/strip</td>
+                    <td>{{medicine.category.name}}</td>
+                    <td>{{medicine.quantityInCart}}</td>
+                    <td>{{medicine.price * medicine.quantityInCart}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button class="btn btn-dark" routerLink="/order">Place Order</button>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!-- <p>addmedicine works!</p> -->
+
+<br>
+<div class="col-md-7 m-auto">
+    <div class="card">
+        <div class="card-header">
+            <h4>Add New Medicine</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" #medicineForm="ngForm">
+                <div>
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" [(ngModel)]="medicine.name" name="name" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" type="text" id="description" [(ngModel)]="medicine.description"
+                        name="description" required></textarea>
+                </div>
+                <div>
+                    <label for="brand">Brand:</label>
+                    <input class="form-control" type="text" id="brand" [(ngModel)]="medicine.brand" name="brand"
+                        required>
+                </div>
+                <div>
+                    <label for="availableQuantity">Available Quantity:</label>
+                    <input class="form-control" type="number" id="availableQuantity"
+                        [(ngModel)]="medicine.availableQuantity" name="availableQuantity" required>
+                </div>
+                <div>
+                    <label for="price">Price:</label>
+                    <input class="form-control" type="number" id="price" [(ngModel)]="medicine.price" name="price"
+                        required>
+                </div>
+                <div>
+                    <label for="category">Select Category:</label>
+                    <select class="form-select" id="category" [(ngModel)]="medicine.category" name="category" required>
+                        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div class="border p-1">
+                    <label class="form-check-inline" for="isActive">Is Active : </label>
+                    <input class="form-check-input" type="checkbox" id="isActive" [(ngModel)]="medicine.isActive"
+                        name="isActive">
+                </div>
+                <br>
+                <div>
+                    <label for="image">Image:</label>
+                    <input class="form-control" type="file" id="image" (change)="onImageSelected($event)" name="image">
+                </div>
+                <br>
+                <div>
+                    <button class="btn btn-dark" type="submit">Add Medicine</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<!-- <p>addcategory works!</p> -->
+<br>
+<div class="col-md-7 m-auto">
+    <div class="card">
+        <div class="card-header text-light" style="background-color: teal;">
+            <h4>Add New Category</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="addCategory()">
+                <div>
+                    <label>Name:</label>
+                    <input class="form-control" [(ngModel)]="category.name" name="name" placeholder="Category Name"
+                        required>
+                </div><br>
+                <div>
+                    <label>Description:</label>
+                    <textarea class="form-control" [(ngModel)]="category.description" rows="4"
+                        placeholder="Write Medicine Description" name=" description"></textarea>
+                </div><br>
+
+                <div>
+                    <button class="btn btn-dark" type="submit">Add Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
